@@ -14,6 +14,8 @@ const config: Config = {
         theme1: "#11836c",
         theme2: "#e3f455",
         theme3: "#318c61",
+        theme4: "#044c5b",
+        theme5: "#043438",
       },
     },
   },

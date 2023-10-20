@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import isValidEmail from "../utils/emailRegex";
+import isValidEmail from "../../utils/emailRegex";
 import { currentUserStore, useStore } from "@/app/store";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -13,7 +13,7 @@ type LoginProps = {
   };
 };
 
-export default function Login({ value }: LoginProps) {
+export default function LoginButton({ value }: LoginProps) {
   const {
     setPasswordVisibility,
     emailInput,

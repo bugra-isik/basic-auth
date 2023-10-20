@@ -1,5 +1,5 @@
 import { useStore } from "@/app/store";
-import TogglePassword from "../ui/togglePassword";
+import TogglePassword from "../../ui/togglePassword";
 import { AiOutlineLock, AiOutlineMail, AiOutlineUser } from "react-icons/ai";
 import { useEffect, useState } from "react";
 
@@ -30,13 +30,13 @@ export default function RegisterInputs({
   }, [setRegisterUser, usernameInput, lastnameInput, emailInput, password]);
 
   const inputTW =
-    "grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-dark/50 focus:outline-theme3";
+    "grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-light/50 focus:outline-theme3";
 
   return (
     <div className={`flex flex-col gap-y-5`}>
       <span className={`relative flex items-center`}>
         <AiOutlineUser
-          className={`absolute left-1 h-full text-xl text-dark/50`}
+          className={`absolute left-1 h-full text-xl text-light/50`}
         />
         <input
           required
@@ -50,7 +50,7 @@ export default function RegisterInputs({
       </span>
       <span className={`relative flex items-center`}>
         <AiOutlineUser
-          className={`absolute left-1 h-full text-xl text-dark/50`}
+          className={`absolute left-1 h-full text-xl text-light/50`}
         />
         <input
           required
@@ -64,7 +64,7 @@ export default function RegisterInputs({
       </span>
       <span className={`relative flex items-center`}>
         <AiOutlineMail
-          className={`absolute left-1 h-full text-xl text-dark/50`}
+          className={`absolute left-1 h-full text-xl text-light/50`}
         />
         <input
           required
@@ -79,7 +79,7 @@ export default function RegisterInputs({
 
       <span className={`relative flex items-center `}>
         <AiOutlineLock
-          className={`absolute left-1 h-full text-xl text-dark/50`}
+          className={`absolute left-1 h-full text-xl text-light/50`}
         />
         <input
           required
@@ -94,7 +94,7 @@ export default function RegisterInputs({
       </span>
       <span className={`relative flex items-center `}>
         <AiOutlineLock
-          className={`absolute left-1 h-full text-xl text-dark/50`}
+          className={`absolute left-1 h-full text-xl text-light/50`}
         />
         <input
           required
@@ -115,13 +115,13 @@ export default function RegisterInputs({
           checked={checkbox}
           onChange={() => setCheckbox()}
         />
-        <p className={`text-xs text-dark/75`}>
+        <p className={`text-xs text-light/75`}>
           By creating an account, you agree to our{" "}
-          <span className={`cursor-help underline hover:text-dark`}>
+          <span className={`cursor-help underline hover:text-light`}>
             Terms of Use
           </span>{" "}
           &{" "}
-          <span className={`cursor-help underline hover:text-dark`}>
+          <span className={`cursor-help underline hover:text-light`}>
             Privacy Notice
           </span>
           .

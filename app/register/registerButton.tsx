@@ -1,16 +1,23 @@
 import { useStore } from "@/app/store";
 import isValidEmail from "@/utils/emailRegex";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
-export default function Register({ checkPassword }: { checkPassword: string }) {
+export default function RegisterButton({
+  checkPassword,
+}: {
+  checkPassword: string;
+}) {
   const { setPasswordVisibility, checkbox, registerUser } = useStore();
+  const { push } = useRouter();
 
   const { email, firstName, lastName, password } = registerUser;
 
   const postRegistration = async () => {
     try {
-      await axios.post("/api/register", registerUser);
-      console.log("postRegistration complete", registerUser);
+      await axios
+        .post("/api/register", registerUser)
+        .then((e) => e.data.userState && push("/login"));
     } catch (error) {
       console.log(`postRegistration failed ==> ${error}`);
     }

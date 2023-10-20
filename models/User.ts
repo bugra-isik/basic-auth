@@ -7,8 +7,4 @@ const userSchema = new mongoose.Schema({
   password: String,
 });
 
-const UserModel = mongoose.model("User", userSchema);
-
-export const searchDeneme = (p1:{}) => UserModel.findOne(p1);
-
-export default UserModel;
+export default mongoose.models.User || mongoose.model("User", userSchema);

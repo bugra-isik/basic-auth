@@ -6,7 +6,12 @@ export type NewUser = {
 };
 
 export type CurrentUser = {
-  current: null;
+  current?: {
+    firstName: string;
+    lastName: string;
+    email: string;
+    password: string;
+  };
   setCurrent: (e) => void;
 };
 

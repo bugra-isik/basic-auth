@@ -5,7 +5,7 @@ export default function TogglePassword() {
   const { setPasswordVisibility } = useStore();
   return (
     <div
-      className={`absolute right-2 cursor-pointer text-xl text-dark transition hover:scale-105`}
+      className={`absolute right-2 cursor-pointer text-xl text-light transition hover:scale-105`}
       onClick={() => setPasswordVisibility(undefined)}
     >
       <AiFillEye />

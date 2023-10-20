@@ -2,7 +2,12 @@ import { CurrentUser, Store } from "@/types";
 import { create } from "zustand";
 
 const currentUserStore = create<CurrentUser>()((set) => ({
-  current: null,
+  current: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  },
   setCurrent: (e) => set(() => ({ current: e })),
 }));
 

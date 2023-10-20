@@ -30,15 +30,15 @@ export default function LoginInputs({ value }: LoginInputsProps) {
       <div>
         <span className={`relative flex items-center `}>
           <AiOutlineMail
-            className={`absolute left-1 h-full text-xl text-dark/50`}
+            className={`absolute left-1 h-full text-xl text-light/50`}
           />
           <input
             type="text"
             placeholder="Email"
-            className={`grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-dark/50 focus:outline-theme3`}
+            className={`grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-light/50 focus:outline-theme3`}
             onChange={(e) => {
               setEmailInput(e.currentTarget.value),
-              setLoginEmail(e.currentTarget.value);
+                setLoginEmail(e.currentTarget.value);
             }}
           />
         </span>
@@ -54,19 +54,19 @@ export default function LoginInputs({ value }: LoginInputsProps) {
 
       <span className={`relative flex items-center `}>
         <AiOutlineLock
-          className={`absolute left-1 h-full text-xl text-dark/50`}
+          className={`absolute left-1 h-full text-xl text-light/50`}
         />
         <input
           type={passwordVisibility ? "text" : "password"}
           placeholder="Password"
-          className={`grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-dark/50 focus:outline-theme3`}
+          className={`grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-light/50 focus:outline-theme3`}
           onChange={(e) => {
             setPasswordInput(e.currentTarget.value),
-            setLoginPassword(e.currentTarget.value);
+              setLoginPassword(e.currentTarget.value);
           }}
         />
         <div
-          className={`absolute right-2 cursor-pointer text-xl text-dark transition hover:scale-105`}
+          className={`absolute right-2 cursor-pointer text-xl text-light transition hover:scale-105`}
           onClick={() => setPasswordVisibility(undefined)}
         >
           <AiFillEye />
