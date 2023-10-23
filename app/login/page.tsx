@@ -2,25 +2,15 @@
 
 import { useStore } from "@/app/store";
 import LoginInputs from "./loginInputs";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoginButton from "./loginButton";
 import Link from "next/link";
-import axios from "axios";
 
 export default function LoginBody() {
   const { setBody, setPasswordVisibility } = useStore();
 
   const [loginEmail, setLoginEmail] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
-
-  useEffect(() => {
-    const connectToMongo = async () => {
-      try {
-        axios.get("/api");
-      } catch (error) {console.error(error)}
-    };
-    connectToMongo();
-  }, []);
 
   return (
     <main
