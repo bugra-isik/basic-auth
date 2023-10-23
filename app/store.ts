@@ -25,6 +25,8 @@ const useStore = create<Store>()((set) => ({
   setPasswordInput: (e) => set(() => ({ passwordInput: e })),
   emailValidation: true,
   setEmailValidation: (e) => set(() => ({ emailValidation: e })),
+  exitPanel: false,
+  setExitPanel: (e) => set(() => ({ exitPanel: e })),
   registerUser: {
     firstName: "",
     lastName: "",

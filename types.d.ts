@@ -28,6 +28,8 @@ export type Store = {
   setPasswordInput: (e: string) => void;
   emailValidation: boolean;
   setEmailValidation: (e: boolean) => void;
+  exitPanel: boolean;
+  setExitPanel: (e: boolean) => void;
   registerUser: NewUser;
   setRegisterUser: (
     arg1: string,

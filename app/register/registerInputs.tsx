@@ -30,14 +30,14 @@ export default function RegisterInputs({
   }, [setRegisterUser, usernameInput, lastnameInput, emailInput, password]);
 
   const inputTW =
-    "grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-light/50 focus:outline-theme3";
+    "h-10 grow rounded bg-dark/10 py-2 pl-10 outline-none placeholder:text-light/50 focus:outline-theme3 sm:h-20 sm:pl-16 sm:text-4xl md:pl-20 md:text-4xl lg:h-5 lg:text-xs xl:h-8 xl:text-base 2xl:h-auto";
+  const iconTW =
+    "absolute left-1 h-full text-2xl text-light/50 sm:text-4xl md:text-5xl lg:text-xl";
 
   return (
-    <div className={`flex flex-col gap-y-5`}>
+    <div className={`flex flex-col gap-y-4 sm:gap-y-5 lg:gap-y-4 xl:gap-y-5`}>
       <span className={`relative flex items-center`}>
-        <AiOutlineUser
-          className={`absolute left-1 h-full text-xl text-light/50`}
-        />
+        <AiOutlineUser className={iconTW} />
         <input
           required
           type="text"
@@ -48,10 +48,9 @@ export default function RegisterInputs({
           }}
         />
       </span>
+
       <span className={`relative flex items-center`}>
-        <AiOutlineUser
-          className={`absolute left-1 h-full text-xl text-light/50`}
-        />
+        <AiOutlineUser className={iconTW} />
         <input
           required
           type="text"
@@ -63,9 +62,7 @@ export default function RegisterInputs({
         />
       </span>
       <span className={`relative flex items-center`}>
-        <AiOutlineMail
-          className={`absolute left-1 h-full text-xl text-light/50`}
-        />
+        <AiOutlineMail className={iconTW} />
         <input
           required
           type="text"
@@ -78,9 +75,7 @@ export default function RegisterInputs({
       </span>
 
       <span className={`relative flex items-center `}>
-        <AiOutlineLock
-          className={`absolute left-1 h-full text-xl text-light/50`}
-        />
+        <AiOutlineLock className={iconTW} />
         <input
           required
           type={passwordVisibility ? "text" : "password"}
@@ -93,9 +88,7 @@ export default function RegisterInputs({
         <TogglePassword />
       </span>
       <span className={`relative flex items-center `}>
-        <AiOutlineLock
-          className={`absolute left-1 h-full text-xl text-light/50`}
-        />
+        <AiOutlineLock className={iconTW} />
         <input
           required
           type={passwordVisibility ? "text" : "password"}
@@ -109,13 +102,15 @@ export default function RegisterInputs({
       </span>
       <div className={`flex flex-row gap-x-5`}>
         <input
-          className={`cursor-cell accent-theme3`}
+          className={`cursor-cell accent-theme3 sm:w-12 md:w-14 lg:w-8`}
           type="checkbox"
           name="Check"
           checked={checkbox}
           onChange={() => setCheckbox()}
         />
-        <p className={`text-xs text-light/75`}>
+        <p
+          className={`self-start text-sm text-light/75 underline transition hover:text-light sm:mt-10 sm:text-xl md:text-2xl lg:mt-0 lg:text-xs xl:text-xs`}
+        >
           By creating an account, you agree to our{" "}
           <span className={`cursor-help underline hover:text-light`}>
             Terms of Use

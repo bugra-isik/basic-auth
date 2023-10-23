@@ -5,7 +5,6 @@ import { NewUser } from "@/types";
 
 export const POST = async (req: Request, res: Response) => {
   const { email, firstName, lastName, password }: NewUser = await req.json();
-  await connectMongoDB();
   const registerData = await RegisterModel.findOne({ email: email });
   let userState;
   if (registerData == null) {

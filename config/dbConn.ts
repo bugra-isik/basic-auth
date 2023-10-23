@@ -8,6 +8,7 @@ const connectMongoDB = async () => {
       });
     }
     console.log("Connected to MongoDB ");
+    return "Connected to MongoDB ";
   } catch (error) {
     console.error(error);
   }

@@ -2,9 +2,10 @@
 
 import { useStore } from "@/app/store";
 import LoginInputs from "./loginInputs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LoginButton from "./loginButton";
 import Link from "next/link";
+import axios from "axios";
 
 export default function LoginBody() {
   const { setBody, setPasswordVisibility } = useStore();
@@ -12,20 +13,34 @@ export default function LoginBody() {
   const [loginEmail, setLoginEmail] = useState<string>("");
   const [loginPassword, setLoginPassword] = useState<string>("");
 
+  useEffect(() => {
+    const connectToMongo = async () => {
+      try {
+        axios.get("/api");
+      } catch (error) {}
+    };
+    connectToMongo();
+  }, []);
+
   return (
-    <div
+    <main
       id="body"
-      className={`flex h-screen w-screen items-center justify-end text-white/75`}
+      className={`flex h-screen w-screen text-white/75 lg:items-center lg:justify-end lg:pr-20 xl:pr-28 2xl:pr-40`}
     >
       <div
-        className={`flex flex-col justify-between rounded border-white bg-white/5 px-5 pt-10 backdrop-blur-3xl 2xl:mr-40 2xl:h-2/3 2xl:w-1/5`}
+        className={`flex h-screen w-full flex-col justify-between
+         rounded border-white bg-white/5 px-5 py-10 backdrop-blur-3xl sm:py-20 lg:h-2/3 lg:w-80 lg:py-5 xl:w-96 xl:py-10`}
       >
-        <div className={`flex flex-col gap-10`}>
-          <h1 className={`text-center text-6xl font-bold`}>Welcome!</h1>
+        <div className={`flex gap-20 flex-col sm:gap-40 lg:gap-10`}>
+          <h1
+            className={`text-center text-6xl font-bold sm:text-7xl md:text-8xl lg:text-3xl xl:text-4xl 2xl:text-5xl`}
+          >
+            Welcome!
+          </h1>
           <div className={`flex flex-col gap-y-5`}>
             <LoginInputs value={{ setLoginEmail, setLoginPassword }} />
             <button
-              className={`self-start text-light/75 underline transition hover:text-light`}
+              className={`self-start text-sm text-light/75 underline transition hover:text-light sm:mt-10 sm:text-xl md:text-2xl lg:mt-0 lg:text-base`}
             >
               Forgot your password?
             </button>
@@ -33,7 +48,7 @@ export default function LoginBody() {
         </div>
         <div className={`flex flex-col gap-y-5`}>
           <LoginButton value={{ loginEmail, loginPassword }} />
-          <p>
+          <p className={`sm:text-xl md:text-2xl lg:text-base`}>
             Don&apos;t have an account yet?{" "}
             <Link
               href={"/register"}
@@ -47,6 +62,6 @@ export default function LoginBody() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

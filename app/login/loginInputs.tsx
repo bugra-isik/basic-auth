@@ -22,6 +22,10 @@ export default function LoginInputs({ value }: LoginInputsProps) {
     setPasswordInput,
     setPasswordVisibility,
   } = useStore();
+  const inputTW =
+    "grow rounded bg-dark/10 py-2 pl-7 sm:pl-14 outline-none placeholder:text-light/50 focus:outline-theme3 sm:h-20 md:pl-16 sm:text-4xl md:text-5xl lg:h-auto lg:pl-7 lg:text-base";
+  const iconTW =
+    "absolute left-1 h-full text-light/50 sm:text-4xl md:text-5xl lg:text-xl";
 
   const { setLoginEmail, setLoginPassword } = value;
 
@@ -29,13 +33,11 @@ export default function LoginInputs({ value }: LoginInputsProps) {
     <div className={`flex flex-col gap-y-10`}>
       <div>
         <span className={`relative flex items-center `}>
-          <AiOutlineMail
-            className={`absolute left-1 h-full text-xl text-light/50`}
-          />
+          <AiOutlineMail className={iconTW} />
           <input
             type="text"
             placeholder="Email"
-            className={`grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-light/50 focus:outline-theme3`}
+            className={inputTW}
             onChange={(e) => {
               setEmailInput(e.currentTarget.value),
                 setLoginEmail(e.currentTarget.value);
@@ -53,20 +55,18 @@ export default function LoginInputs({ value }: LoginInputsProps) {
       </div>
 
       <span className={`relative flex items-center `}>
-        <AiOutlineLock
-          className={`absolute left-1 h-full text-xl text-light/50`}
-        />
+        <AiOutlineLock className={iconTW} />
         <input
           type={passwordVisibility ? "text" : "password"}
           placeholder="Password"
-          className={`grow rounded bg-dark/10 py-2 pl-7 outline-none placeholder:text-light/50 focus:outline-theme3`}
+          className={inputTW}
           onChange={(e) => {
             setPasswordInput(e.currentTarget.value),
               setLoginPassword(e.currentTarget.value);
           }}
         />
         <div
-          className={`absolute right-2 cursor-pointer text-xl text-light transition hover:scale-105`}
+          className={`absolute right-2 cursor-pointer text-light transition hover:scale-105 sm:text-4xl md:text-5xl lg:text-xl`}
           onClick={() => setPasswordVisibility(undefined)}
         >
           <AiFillEye />

@@ -5,7 +5,6 @@ import LoginModel from "@/models/User";
 export const POST = async (req: Request, res: Response) => {
   const { email, password }: { email: string; password: string } =
     await req.json();
-  await connectMongoDB();
   const loginData = await LoginModel.findOne({
     email: email,
     password: password,

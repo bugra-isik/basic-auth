@@ -25,7 +25,7 @@ export default function RegisterButton({
 
   return (
     <button
-      className={`mt-5 w-full rounded bg-theme1 py-2 text-3xl text-light transition-colors duration-300 hover:bg-theme1/75`}
+      className={`mt-5 h-10 w-full rounded bg-theme1 py-2 text-3xl text-light transition-colors duration-300 hover:bg-theme1/75 sm:h-20 md:h-28 lg:h-auto`}
       onClick={() => {
         switch (true) {
           case checkbox &&
@@ -51,7 +51,11 @@ export default function RegisterButton({
         }
       }}
     >
-      <p>Register</p>
+      <p
+        className={`relative flex items-center justify-center md:text-5xl lg:text-base`}
+      >
+        Register
+      </p>
     </button>
   );
 }
