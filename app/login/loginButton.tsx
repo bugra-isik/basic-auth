@@ -25,19 +25,31 @@ export default function LoginButton({ value }: LoginProps) {
   const { push } = useRouter();
   const { loginEmail, loginPassword } = value;
 
+  let config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  
   const postRequest = async () => {
     setSpinner(true);
     try {
-      const postRequest = await axios.post("/api/login", {
-        email: loginEmail,
-        password: loginPassword,
-      });
+      const postRequest = await axios.post(
+        "/api/login",
+        {
+          email: loginEmail,
+          password: loginPassword,
+        },
+        config,
+      );
       if (postRequest.data && postRequest.data.userState) {
         setCurrent(postRequest.data.res.data);
         push("/user");
       }
       setSpinner(postRequest?.data?.userState);
-    } catch (error) {console.error(error);}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
