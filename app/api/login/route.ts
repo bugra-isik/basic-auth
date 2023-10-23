@@ -1,7 +1,11 @@
 import LoginModel from "@/models/User";
 import connectMongoDB from "@/config/dbConn";
 
-export async function POST(req: Request, res: Response) {
+export async function GET() {
+  return Response.json({ data: "zort" });
+}
+
+export async function POST(req: Request) {
   await connectMongoDB();
   const { email, password }: { email: string; password: string } =
     await req.json();
