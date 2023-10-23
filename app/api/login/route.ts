@@ -2,7 +2,7 @@ import LoginModel from "@/models/User";
 import connectMongoDB from "@/config/dbConn";
 
 export async function POST(req: Request) {
-  connectMongoDB().then(() => "zort");
+  connectMongoDB();
   const { email, password }: { email: string; password: string } =
     await req.json();
   // const loginData = await LoginModel.findOne({
@@ -21,8 +21,8 @@ export async function POST(req: Request) {
     // userState: userState,
     res: {
       role: email,
-      deneme:connectMongoDB,
-      deneme2:connectMongoDB()
+      deneme: connectMongoDB,
+      deneme2: connectMongoDB(),
     },
   });
 }
