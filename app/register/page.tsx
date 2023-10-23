@@ -21,12 +21,16 @@ export default function RegisterBody() {
         className={`flex h-screen w-full flex-col justify-between
         rounded border-white bg-white/5 px-5 py-10 backdrop-blur-3xl sm:py-20 lg:h-2/3 lg:w-80 lg:py-5 xl:w-96 xl:py-5`}
       >
-        <h1 className={`text-center font-bold text-5xl sm:text-6xl md:text-7xl lg:text-2xl xl:text-3xl 2xl:text-4xl lg:mb-4 xl:mb-5`}>
+        <h1
+          className={`text-center text-5xl font-bold sm:text-6xl md:text-7xl lg:mb-4 lg:text-2xl xl:mb-5 xl:text-3xl 2xl:text-4xl`}
+        >
           Create an Account
         </h1>
         <RegisterInputs setCheckPassword={setCheckPassword} />
         <RegisterButton checkPassword={checkPassword} />
-        <p className={`sm:text-3xl md:text-4xl mt-5 lg:text-xs xl:text-sm 2xl:text-base`}>
+        <p
+          className={`mt-5 sm:text-3xl md:text-4xl lg:text-xs xl:text-sm 2xl:text-base`}
+        >
           Already have an account?{" "}
           <Link
             href={"/login"}

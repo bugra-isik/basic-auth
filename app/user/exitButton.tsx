@@ -1,31 +1,21 @@
 import { useRouter } from "next/navigation";
 import { currentUserStore, useStore } from "../store";
-import { useClickAway } from "@uidotdev/usehooks";
-import { Ref, forwardRef, useState } from "react";
+import { Ref } from "react";
 import { motion } from "framer-motion";
 
 export default function ExitLabel({
   exitRef,
   setIsOpen,
-  isOpen,
 }: {
   exitRef: Ref<any>;
   setIsOpen: (e: boolean) => void;
-  isOpen: boolean;
 }) {
-  const { current, setCurrent } = currentUserStore();
-  const { setExitPanel } = useStore();
+  const { setCurrent } = currentUserStore();
   const { push } = useRouter();
 
   const handleLogOut = () => {
     push("/login");
     setCurrent(null);
-  };
-
-  const handleOpenModal = () => {
-    if (isOpen === true) {
-      setIsOpen(true);
-    }
   };
 
   return (
@@ -41,7 +31,7 @@ export default function ExitLabel({
         onClick={(e) => setIsOpen(false)}
       />
       <motion.section
-        className={`absolute z-50 flex h-40 w-80 flex-col items-center justify-between bg-theme4 drop-shadow-2xl py-7`}
+        className={`absolute z-50 flex h-40 w-80 flex-col items-center justify-between bg-theme4 py-7 drop-shadow-2xl`}
       >
         <div>Log out?</div>
         <div className={`flex gap-x-14`}>

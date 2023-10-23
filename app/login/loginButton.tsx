@@ -54,7 +54,7 @@ export default function LoginButton({ value }: LoginProps) {
 
   return (
     <button
-      className={`mt-5 sm:h-20 md:h-28 lg:h-auto w-full rounded bg-theme1 py-2 text-3xl text-light transition-colors duration-300 hover:bg-theme1/75`}
+      className={`mt-5 w-full rounded bg-theme1 py-2 text-3xl text-light transition-colors duration-300 hover:bg-theme1/75 sm:h-20 md:h-28 lg:h-auto`}
       onClick={() => {
         setPasswordVisibility(false),
           setEmailValidation(isValidEmail(emailInput)),
@@ -64,7 +64,9 @@ export default function LoginButton({ value }: LoginProps) {
             postRequest();
       }}
     >
-      <p className={`relative md:text-5xl lg:text-base flex items-center justify-center`}>
+      <p
+        className={`relative flex items-center justify-center md:text-5xl lg:text-base`}
+      >
         Login{" "}
         <span className={`absolute right-5 ml-5 animate-spin`}>
           {spinner && <ImSpinner11 />}

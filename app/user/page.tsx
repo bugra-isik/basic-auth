@@ -1,5 +1,3 @@
-"use client";
-import { currentUserStore } from "../store";
 import Header from "./body";
 
 export default function Home() {

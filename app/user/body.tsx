@@ -1,6 +1,6 @@
-import { ReactNode, useRef, useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
 import { currentUserStore, useStore } from "../store";
-import { BsChevronDoubleRight } from "react-icons/bs";
 import Table from "./table";
 import { useRouter } from "next/navigation";
 import Wishlist from "./wishlist";
@@ -15,21 +15,21 @@ export default function Header() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const { push, back } = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+
   const myExitRef = useClickAway(() => {
     setIsOpen(false);
   });
-  const menuItems = [
-    "Account Information",
-    "My Wishlist",
-    "Change Password",
-    "Log Out",
-  ];
-  if (current?.email === "") {
-    back();
-  }
+
+  useEffect(() => {
+    if (current?.email === "") {
+      back();
+    }
+  }, [current?.email, back]);
+
   const handleLogout = () => {
     setIsOpen(true);
   };
+
   const bodyItem = () => {
     switch (activeIndex) {
       case 0:
@@ -42,23 +42,25 @@ export default function Header() {
         return <Table />;
     }
   };
+
+  const menuItems = [
+    "Account Information",
+    "My Wishlist",
+    "Change Password",
+    "Log Out",
+  ];
+
   return (
     <section
       className={`relative h-full w-screen rounded bg-transparent text-2xl text-light sm:p-20`}
     >
       <AnimatePresence>
-        {isOpen && (
-          <ExitLabel
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            exitRef={myExitRef}
-          />
-        )}
+        {isOpen && <ExitLabel setIsOpen={setIsOpen} exitRef={myExitRef} />}
       </AnimatePresence>
       <div className={`flex h-full w-full flex-col rounded bg-theme4/75`}>
         <header
-          className={`flex h-40 items-center justify-center border-b-4 sm:border-b-2 border-theme5 px-10 
-           text-3xl sm:text-5xl md:text-6xl lg:justify-start lg:text-3xl xl:text-5xl 2xl:text-6xl`}
+          className={`flex h-40 items-center justify-center border-b-4 border-theme5 px-10 text-3xl 
+           sm:border-b-2 sm:text-5xl md:text-6xl lg:justify-start lg:text-3xl xl:text-5xl 2xl:text-6xl`}
         >
           Hello {current?.firstName || "Example"}
         </header>
@@ -86,11 +88,7 @@ export default function Header() {
               </button>
             ))}
           </ul>
-          <section
-            className={`w-3/4 self-center`}
-          >
-            {bodyItem()}
-          </section>
+          <section className={`w-3/4 self-center`}>{bodyItem()}</section>
         </section>
       </div>
     </section>

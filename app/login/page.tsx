@@ -31,7 +31,7 @@ export default function LoginBody() {
         className={`flex h-screen w-full flex-col justify-between
          rounded border-white bg-white/5 px-5 py-10 backdrop-blur-3xl sm:py-20 lg:h-2/3 lg:w-80 lg:py-5 xl:w-96 xl:py-10`}
       >
-        <div className={`flex gap-20 flex-col sm:gap-40 lg:gap-10`}>
+        <div className={`flex flex-col gap-20 sm:gap-40 lg:gap-10`}>
           <h1
             className={`text-center text-6xl font-bold sm:text-7xl md:text-8xl lg:text-3xl xl:text-4xl 2xl:text-5xl`}
           >
