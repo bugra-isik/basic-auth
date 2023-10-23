@@ -1,5 +1,5 @@
 import connectMongoDB from "@/config/dbConn";
-import mongoose from "mongoose";
+import mongoose, { connection } from "mongoose";
 
 export async function POST(req: Request, res: Response) {
   let deneme = "bırt";
@@ -16,5 +16,6 @@ export async function POST(req: Request, res: Response) {
     })
     .catch((e) => console.error(e));
 
+  await mongoose.connection.close();
   return Response.json(deneme);
 }
