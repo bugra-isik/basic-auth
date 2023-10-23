@@ -1,4 +1,3 @@
-import { NextResponse } from "next/server";
 import RegisterModel from "@/models/User";
 import { NewUser } from "@/types";
 import connectMongoDB from "@/config/dbConn";
@@ -19,7 +18,7 @@ export async function POST(req: Request, res: Response) {
   } else if (typeof registerData === "object") {
     userState = false;
   }
-  return NextResponse.json({
+  return Response.json({
     method: "POST",
     status: "Complete",
     userState: userState,
