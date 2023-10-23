@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import connectMongoDB from "@/config/dbConn";
 import RegisterModel from "@/models/User";
 import { NewUser } from "@/types";
+import connectMongoDB from "@/config/dbConn";
 
 export async function POST(req: Request, res: Response) {
-  const { email, firstName, lastName, password }: NewUser = await req.json();  
+  await connectMongoDB();
+  const { email, firstName, lastName, password }: NewUser = await req.json();
   const registerData = await RegisterModel.findOne({ email: email });
   let userState;
   if (registerData == null) {
