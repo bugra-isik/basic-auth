@@ -17,9 +17,7 @@ export default function LoginBody() {
     const connectToMongo = async () => {
       try {
         axios.get("/api");
-      } catch (error) {
-        console.error(error);
-      }
+      } catch (error) {console.error(error)}
     };
     connectToMongo();
   }, []);

@@ -28,7 +28,7 @@ export default function LoginButton({ value }: LoginProps) {
   const postRequest = async () => {
     setSpinner(true);
     try {
-      const postRequest = await axios.post("https://basic-auth-nine.vercel.app/api/login", {
+      const postRequest = await axios.post("/api/login", {
         email: loginEmail,
         password: loginPassword,
       });

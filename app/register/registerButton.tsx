@@ -17,7 +17,7 @@ export default function RegisterButton({
     try {
       await axios
         .post("/api/register", registerUser)
-        .then((e) => e.data.userState && push("https://basic-auth-nine.vercel.app/login"));
+        .then((e) => e.data.userState && push("/login"));
     } catch (error) {
       console.error(`postRegistration failed ==> ${error}`);
     }
