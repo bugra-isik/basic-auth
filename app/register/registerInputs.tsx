@@ -30,7 +30,7 @@ export default function RegisterInputs({
   }, [setRegisterUser, usernameInput, lastnameInput, emailInput, password]);
 
   const inputTW =
-    "h-10 grow rounded bg-dark/10 py-2 pl-10 outline-none placeholder:text-light/50 focus:outline-theme3 sm:h-20 sm:pl-16 sm:text-4xl md:pl-20 md:text-4xl lg:h-5 lg:text-xs xl:h-8 xl:text-base 2xl:h-auto";
+    "h-10 grow rounded bg-dark/10 py-2 pl-10 outline-none placeholder:text-light/50 focus:outline-theme3 sm:h-20 sm:pl-16 sm:text-4xl md:pl-20 md:text-4xl lg:h-5 lg:pl-8 lg:text-xs xl:h-8 xl:text-base 2xl:h-auto 2xl:pl-10";
   const iconTW =
     "absolute left-1 h-full text-2xl text-light/50 sm:text-4xl md:text-5xl lg:text-xl";
 

@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
-import connectMongoDB from "@/config/dbConn";
 import LoginModel from "@/models/User";
 
-export const POST = async (req: Request, res: Response) => {
+export async function POST(req: Request, res: Response) {
   const { email, password }: { email: string; password: string } =
     await req.json();
   const loginData = await LoginModel.findOne({
@@ -21,4 +20,4 @@ export const POST = async (req: Request, res: Response) => {
     userState: userState,
     res: { data: loginData, role: "member" },
   });
-};
+}
