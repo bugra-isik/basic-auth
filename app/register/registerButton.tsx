@@ -14,13 +14,13 @@ export default function RegisterButton({
   const { email, firstName, lastName, password } = registerUser;
 
   const postRegistration = async () => {
-    try {
-      await axios
-        .post("/api/register", registerUser)
-        .then((e) => e.data.userState && push("/login"));
-    } catch (error) {
-      console.error(`postRegistration failed ==> ${error}`);
-    }
+    await axios
+      .post("/api/register", registerUser)
+      .then((e) => {
+        e.data.userState && push("/login");
+        console.log(e.data);
+      })
+      .catch((e) => console.error(`postRegistration failed ==> ${e}`));
   };
 
   return (

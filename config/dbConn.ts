@@ -6,7 +6,7 @@ const connectMongoDB = async () => {
       (await mongoose.connect(process.env.MONGO_URI, {
         dbName: "UserDB",
       }));
-    console.log("Connected to MongoDB ");
+    return "Connected to MongoDB2 ";
   } catch (error) {
     console.error(error);
   }

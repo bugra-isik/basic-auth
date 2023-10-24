@@ -30,26 +30,27 @@ export default function LoginButton({ value }: LoginProps) {
       "Content-Type": "application/json",
     },
   };
-  
+
   const postRequest = async () => {
     setSpinner(true);
-    try {
-      const postRequest = await axios.post(
+    await axios
+      .post(
         "/api/login",
         {
           email: loginEmail,
           password: loginPassword,
         },
         config,
-      );
-      if (postRequest.data && postRequest.data.userState) {
-        setCurrent(postRequest.data.res.data);
-        push("/user");
-      }
-      setSpinner(postRequest?.data?.userState);
-    } catch (error) {
-      console.error(error);
-    }
+      )
+      .then((e) => {
+        if (e.data && e.data.userState) {
+          setCurrent(e.data.res.data);
+          push("/user");
+        }
+        setSpinner(e?.data?.userState);
+        console.log(e.data);
+      })
+      .catch((e) => console.error(e));
   };
 
   useEffect(() => {
