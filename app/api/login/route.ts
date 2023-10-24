@@ -5,17 +5,15 @@ export async function POST(req: Request) {
   const { email, password }: { email: string; password: string } =
     await req.json();
   let userState, loginData, mongoDb;
-  await mongoose
-    .connect(
-      process.env.MONGO_URI,
-      {
+  process.env.MONGO_URI &&
+    (await mongoose
+      .connect(process.env.MONGO_URI, {
         dbName: "UserDB",
-      },
-    )
-    .then(() => {
-      mongoDb = "Connected";
-    })
-    .catch(() => (mongoDb = "Disconnected"));
+      })
+      .then(() => {
+        mongoDb = "Connected";
+      })
+      .catch(() => (mongoDb = "Disconnected")));
 
   loginData = await LoginModel.findOne({
     email: email,

@@ -5,12 +5,13 @@ import mongoose from "mongoose";
 export async function POST(req: Request, res: Response) {
   const { email, firstName, lastName, password }: NewUser = await req.json();
   let userState, mongoDb;
-  await mongoose
-    .connect(process.env.MONGO_URI, { dbName: "UserDB" })
-    .then(() => {
-      mongoDb = "Connected";
-    })
-    .catch(() => (mongoDb = "Disconnected"));
+  process.env.MONGO_URI &&
+    (await mongoose
+      .connect(process.env.MONGO_URI, { dbName: "UserDB" })
+      .then(() => {
+        mongoDb = "Connected";
+      })
+      .catch(() => (mongoDb = "Disconnected")));
   const registerData = await RegisterModel.findOne({ email: email });
   if (registerData == null) {
     await RegisterModel.create({
