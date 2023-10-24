@@ -6,10 +6,7 @@ export async function POST(req: Request, res: Response) {
   const { email, firstName, lastName, password }: NewUser = await req.json();
   let userState, mongoDb;
   await mongoose
-    .connect(
-      "mongodb+srv://librouse98:ze1dodp9JXHfTGwB@cluster0.4qjwa0b.mongodb.net/?retryWrites=true&w=majority",
-      { dbName: "UserDB" },
-    )
+    .connect(process.env.MONGO_URI, { dbName: "UserDB" })
     .then(() => {
       mongoDb = "Connected";
     })

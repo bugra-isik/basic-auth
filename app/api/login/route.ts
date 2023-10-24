@@ -7,7 +7,7 @@ export async function POST(req: Request) {
   let userState, loginData, mongoDb;
   await mongoose
     .connect(
-      "mongodb+srv://librouse98:ze1dodp9JXHfTGwB@cluster0.4qjwa0b.mongodb.net/?retryWrites=true&w=majority",
+      process.env.MONGO_URI,
       {
         dbName: "UserDB",
       },
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     .then(() => {
       mongoDb = "Connected";
     })
-    .catch((e) => (mongoDb = "Disconnected"));
+    .catch(() => (mongoDb = "Disconnected"));
 
   loginData = await LoginModel.findOne({
     email: email,
@@ -23,7 +23,8 @@ export async function POST(req: Request) {
   });
   if (loginData == null) {
     userState = false;
-  } else if (typeof loginData === "object") {
+  }
+  if (typeof loginData === "object") {
     userState = true;
   }
   return Response.json({
