@@ -60,7 +60,7 @@ export default function Header() {
       <div className={`flex h-full w-full flex-col rounded bg-theme4/75`}>
         <header
           className={`flex h-40 items-center justify-center border-b-4 border-theme5 px-10 text-3xl 
-           sm:border-b-2 sm:text-5xl md:text-6xl lg:justify-start lg:text-3xl xl:text-5xl 2xl:text-6xl`}
+           sm:border-b-2 sm:text-5xl md:text-6xl lg:justify-start lg:text-3xl xl:text-5xl 2xl:text-6xl capitalize`}
         >
           Hello {current?.firstName || "Example"}
         </header>

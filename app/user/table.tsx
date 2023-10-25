@@ -18,10 +18,10 @@ export default function Table() {
         <tbody>
           {tableData.map((item, index) => (
             <tr key={index}>
-              <td className="h-20 w-40 border-2 border-theme5 pl-2">
+              <td className="h-20 w-40 border-2 border-theme5 pl-2 capitalize">
                 {item.label}
               </td>
-              <td className="w-80 border-2 border-theme5 pl-2">{item.value}</td>
+              <td className="w-80 border-2 border-theme5 pl-2 ">{item.value}</td>
             </tr>
           ))}
         </tbody>
