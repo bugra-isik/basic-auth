@@ -1,4 +1,3 @@
-
 import { currentUserStore } from "../store";
 
 export default function Table() {
@@ -21,7 +20,9 @@ export default function Table() {
               <td className="h-20 w-40 border-2 border-theme5 pl-2 capitalize">
                 {item.label}
               </td>
-              <td className="w-80 border-2 border-theme5 pl-2 ">{item.value}</td>
+              <td className="w-80 border-2 border-theme5 pl-2 ">
+                {item.value}
+              </td>
             </tr>
           ))}
         </tbody>

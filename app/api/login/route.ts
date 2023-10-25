@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   const { email, password }: { email: string; password: string } =
     await req.json();
   let login, loginData, mongoDb;
-  console.log(email, password)
+  console.log(email, password);
   process.env.MONGO_URI &&
     (await mongoose
       .connect(process.env.MONGO_URI, {
